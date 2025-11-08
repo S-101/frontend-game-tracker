@@ -16,7 +16,7 @@ export default function BibliotecaJuegos() {
   // Reproduce video al entrar
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, []);
 
@@ -33,11 +33,27 @@ export default function BibliotecaJuegos() {
     e.preventDefault();
     if (!nuevoJuego.titulo || !nuevoJuego.genero) return;
 
+    const payload = {
+      titulo: nuevoJuego.titulo,
+      genero: nuevoJuego.genero,
+      plataforma: nuevoJuego.plataforma || "",
+      fechaLanzamiento: nuevoJuego.fechaLanzamiento || "",
+      desarrollador: nuevoJuego.desarrollador || "",
+      imagenPortada: nuevoJuego.portada || "",
+    };
+
     axios
-      .post("http://localhost:5000/api/juegos", nuevoJuego)
+      .post("http://localhost:5000/api/juegos", payload)
       .then((res) => {
         setJuegos([...juegos, res.data]);
-        setNuevoJuego({ titulo: "", genero: "", portada: "" });
+        setNuevoJuego({
+          titulo: "",
+          genero: "",
+          plataforma: "",
+          fechaLanzamiento: "",
+          desarrollador: "",
+          portada: "",
+        });
       })
       .catch((err) => console.error("Error al agregar juego:", err));
   };
@@ -48,7 +64,7 @@ export default function BibliotecaJuegos() {
       <video
         ref={videoRef}
         className="background-video"
-        src="/videos/library-bg.mp4"
+        src="/Video/SEASON 8 THE FINALS.mp4"
         autoPlay
         loop
         playsInline
@@ -97,15 +113,17 @@ export default function BibliotecaJuegos() {
                 <div
                   className="juego-portada"
                   style={{
-                    backgroundImage: `url(${
-                      juego.portada ||
+                    backgroundImage: `url(${juego.imagenPortada ||
                       "https://via.placeholder.com/300x400?text=No+Image"
-                    })`,
+                      })`,
                   }}
                 ></div>
                 <div className="juego-info">
                   <p className="juego-titulo">{juego.titulo}</p>
                   <p className="juego-genero">{juego.genero}</p>
+                   <p className="juego-genero">{juego.plataforma}</p>
+                    <p className="juego-genero">{juego.fechaLanzamiento}</p>
+                     <p className="juego-genero">{juego.desarrollador}</p>
                 </div>
               </div>
             ))}
@@ -139,6 +157,42 @@ export default function BibliotecaJuegos() {
               />
             </div>
             <div className="form-group">
+              <label htmlFor="plataforma">Plataforma</label>
+              <input
+                id="plataforma"
+                type="text"
+                placeholder="Ej: Xbox, PlayStation, PC"
+                value={nuevoJuego.plataforma}
+                onChange={(e) =>
+                  setNuevoJuego({ ...nuevoJuego, plataforma: e.target.value })
+                }
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="fechaLanzamiento">Fecha de lanzamiento</label>
+              <input
+                id="fechaLanzamiento"
+                type="text"
+                placeholder="Ej: 2023-01-01"
+                value={nuevoJuego.fechaLanzamiento}
+                onChange={(e) =>
+                  setNuevoJuego({ ...nuevoJuego, fechaLanzamiento: e.target.value })
+                }
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="desarrollador">Desarrollador</label>
+              <input
+                id="desarrollador"
+                type="text"
+                placeholder="Ej: Sony Interactive Entertainment"
+                value={nuevoJuego.desarrollador}
+                onChange={(e) =>
+                  setNuevoJuego({ ...nuevoJuego, desarrollador: e.target.value })
+                }
+              />
+            </div>
+            <div className="form-group">
               <label htmlFor="portada">URL de Portada</label>
               <input
                 id="portada"
@@ -157,3 +211,4 @@ export default function BibliotecaJuegos() {
     </div>
   );
 }
+  

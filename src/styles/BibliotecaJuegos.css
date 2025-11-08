@@ -1,17 +1,6 @@
 /* ======= Biblioteca de Juegos ======= */
 
 /* === Background video setup === */
-.background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* mantiene proporciones */
-  z-index: -1;
-  opacity: 0.35;
-  filter: brightness(0.6);
-}
 
 /* Overlay wrapper */
 .biblioteca-overlay {
