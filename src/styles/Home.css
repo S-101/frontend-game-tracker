@@ -1,0 +1,56 @@
+/* 🔧 Reset global para eliminar márgenes del body y evitar scroll */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* ❌ sin barras de scroll */
+  background-color: black; /* por si el video tarda en cargar */
+}
+
+/* 🎥 Sección fullscreen sin márgenes */
+.hero-fullscreen {
+  position: fixed; /* ✅ asegura que cubra toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  z-index: 0;
+}
+
+/* 🎬 Video cubriendo la pantalla completa */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ mantiene proporción sin deformar */
+  border: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+/* ✨ Overlay centrado encima del video */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.1); /* opcional — puedes quitarlo */
+  pointer-events: none; /* opcional: evita que interfiera con clicks */
+}
+
+
+
