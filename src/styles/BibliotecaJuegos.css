@@ -1,30 +1,50 @@
-/* ======= Biblioteca de Juegos ======= */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* === Background video setup === */
-
-/* Overlay wrapper */
-.biblioteca-overlay {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    rgba(13, 17, 23, 0.6),
-    rgba(13, 17, 23, 0.9)
-  );
-  overflow-y: auto;
-  color: white;
-  font-family: 'Inter', sans-serif;
+html, body {
+  font-family: 'Inter Tight', sans-serif;
 }
 
-/* Smooth scrolling */
 html, body {
+  width: 100%;
   height: 100%;
-  overflow-y: auto;
   margin: 0;
   padding: 0;
-  background: #000;
+  overflow-x: hidden; /* ❌ sin barras de scroll */
+  background-color: black; /* por si el video tarda en cargar */
+}
+/* Overlay wrapper */
+.biblioteca-overlay {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  overflow-y: auto;
+  color: white;
+}
+.biblioteca-container {
+  position: fixed; /* ✅ asegura que cubra toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  z-index: 2;
+}
+.background-video {
+   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ mantiene proporción sin deformar */
+  border: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
 }
 
 /* Header */
@@ -32,32 +52,20 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 3rem;
+  padding-top: 5rem;
 }
 
-/* Main */
-.biblioteca-main {
-  padding-bottom: 6rem;
-  text-align: center;
-}
 
-/* Info text */
-.biblioteca-info {
-  padding: 3rem 2rem;
-}
-
-.biblioteca-info h1 {
-  font-size: clamp(2rem, 4vw, 4rem);
+.biblioteca-info p {
+  font-size: 2rem;
+  color: #ffffff;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  margin-top: 5rem;
+  margin-bottom: 7rem;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-.biblioteca-info p {
-  font-size: 1.2rem;
-  color: #d4d4d4;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
+
 
 /* === Game Grid === */
 .biblioteca-grid {
@@ -104,18 +112,29 @@ html, body {
 }
 
 .juego-titulo {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 400;
   color: #ffffff;
   margin-bottom: 0.3rem;
 }
 
 .juego-genero {
   font-size: 0.9rem;
+  color: #d2d2d2;
+  font-weight: 400;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  margin-top: 0.3rem;
+}
+.juego-datos {
+  font-size: 0.9rem;
   color: #a1a1a1;
   font-weight: 400;
 }
-
 /* === Formulario === */
 .nuevo-juego-form {
   margin: 4rem auto;
@@ -200,4 +219,3 @@ html, body {
   transform: translateY(0);
   box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
 }
-

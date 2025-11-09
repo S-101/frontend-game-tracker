@@ -67,6 +67,7 @@ export default function BibliotecaJuegos() {
         src="/Video/SEASON 8 THE FINALS.mp4"
         autoPlay
         loop
+        muted
         playsInline
       ></video>
 
@@ -77,19 +78,18 @@ export default function BibliotecaJuegos() {
             <TextPressure
               text="AMP!!"
               stroke={false}
-              width={false}
+              width={true}
               weight={true}
-              italic={false}
+              italic={true}
               textColor="#ffffff"
               strokeColor="#4f46e5"
               scale={false}
-              minFontSize={130}
+              minFontSize={230}
             />
           </div>
         </header>
 
         <main className="biblioteca-main">
-          <div className="biblioteca-info">
             <h1>
               <TextPressure
                 text="La Biblioteca de Videojuegos más Robusta."
@@ -103,8 +103,10 @@ export default function BibliotecaJuegos() {
                 minFontSize={80}
               />
             </h1>
-            <p>Explora tus juegos favoritos agregados a tu biblioteca.</p>
-          </div>
+            <div className="biblioteca-info">
+              <p>Explora tus juegos favoritos agregados a tu biblioteca.</p>
+            </div>
+          
 
           {/* Game Grid */}
           <div className="biblioteca-grid">
@@ -122,7 +124,7 @@ export default function BibliotecaJuegos() {
                   <p className="juego-titulo">{juego.titulo}</p>
                   <p className="juego-genero">{juego.genero}</p>
                    <p className="juego-genero">{juego.plataforma}</p>
-                    <p className="juego-genero">{juego.fechaLanzamiento}</p>
+                    <p className="juego-datos">{juego.fechaLanzamiento}</p>
                      <p className="juego-genero">{juego.desarrollador}</p>
                 </div>
               </div>
@@ -173,7 +175,7 @@ export default function BibliotecaJuegos() {
               <input
                 id="fechaLanzamiento"
                 type="text"
-                placeholder="Ej: 2023-01-01"
+                placeholder="Ej: 2023 (Solo el año)"
                 value={nuevoJuego.fechaLanzamiento}
                 onChange={(e) =>
                   setNuevoJuego({ ...nuevoJuego, fechaLanzamiento: e.target.value })
@@ -211,4 +213,3 @@ export default function BibliotecaJuegos() {
     </div>
   );
 }
-  
