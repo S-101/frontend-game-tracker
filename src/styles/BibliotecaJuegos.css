@@ -11,6 +11,7 @@ html, body {
   padding: 0;
   overflow-x: hidden; /* ❌ sin barras de scroll */
   background-color: black; /* por si el video tarda en cargar */
+
 }
 /* Overlay wrapper */
 .biblioteca-overlay {
@@ -19,9 +20,11 @@ html, body {
   background-size: cover;
   background-position: center;
   z-index: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
+  scrollbar-width: none;
   color: white;
 }
+
 .biblioteca-container {
   position: fixed; /* ✅ asegura que cubra toda la pantalla */
   top: 0;
@@ -52,7 +55,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 
@@ -60,24 +63,27 @@ html, body {
   font-size: 2rem;
   color: #ffffff;
   font-weight: 800;
-  margin-top: 5rem;
-  margin-bottom: 7rem;
+  margin-top: 10rem;
+  margin-bottom: 15rem;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-
-
-/* === Game Grid === */
 .biblioteca-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  justify-content: center;
+ display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Máximo 3 por fila */
+  gap: 1.5rem;
+  width: 100%;
+  justify-items: center;
+  padding: 0 40px; /* 👈 ajusta el valor según lo que necesites */
+  box-sizing: border-box;
 }
 
 /* Game Card */
 .juego-card {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  transition: transform 0.3s ease;
   border: none;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.08);
@@ -218,4 +224,50 @@ html, body {
 .nuevo-juego-form button:active {
   transform: translateY(0);
   box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+}
+.juego-acciones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.juego-card:hover .juego-acciones {
+  opacity: 1;
+}
+.juego-acciones button {
+  color: #d2d2d2;
+  font-size: 1rem;
+  font-weight: 200;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  padding: 6px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.juego-acciones button:hover {
+  background-color: #3c3c3fbd;
+}
+
+.eliminar-btn {
+  background-color: #ef4444;
+}
+
+.eliminar-btn:hover {
+  background-color: #b91c1c;
+}
+
+.cancelar-btn {
+  background-color: #9ca3af;
+  margin-left: 10px;
+}
+
+.cancelar-btn:hover {
+  background-color: #6b7280;
 }
