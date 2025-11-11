@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;500;700&display=swap');
+
+html, body {
+  font-family: 'Inter Tight', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow-x: hidden;
+}
+
+.resenas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.45);
+}
+
+.resenas-overlay {
+  position: relative;
+  z-index: 2;
+  color: white;
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Header */
+.resenas-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+
+.resenas-header p {
+  color: #ccc;
+  margin-top:7rem;
+  margin-bottom: 7rem;
+  font-size: clamp(2rem, 2.5vw, 1.2rem);
+}
+
+.reseñas-header-content {
+  margin-top: 2rem;
+}
+
+/* Grid */
+.resenas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.resena-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.resena-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-6px) scale(1.02);
+}
+
+.resena-info {
+  font-size: 1.5rem;
+  color: #e5e7eb;
+}
+.resena-texto{
+  font-size: 3rem;
+  
+}
+
+.resena-puntuacion {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* Botones */
+.resena-acciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.resena-acciones button {
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  background: rgba(255,255,255,0.1);
+}
+
+.resena-acciones button:hover {
+  background: #4f46e5;
+}
+
+.eliminar-btn {
+  background: #ef4444;
+}
+
+.eliminar-btn:hover {
+  background: #b91c1c;
+}
+
+/* Formulario */
+.nueva-resena-form {
+  margin: 0 auto 5rem;
+  max-width: 400px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(25px);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.nueva-resena-form h3 {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.nueva-resena-form input,
+.nueva-resena-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  outline: none;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.checkbox label {
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+.nueva-resena-form button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #4f46e5, #6d28d9);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nueva-resena-form button:hover {
+  background: linear-gradient(90deg, #4338ca, #7c3aed);
+  transform: translateY(-2px);
+}
+
+.cancelar-btn {
+  background: #9ca3af;
+  margin-top: 0.6rem;
+}
+
+.cancelar-btn:hover {
+  background: #6b7280;
+}

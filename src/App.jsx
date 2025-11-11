@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import BibliotecaJuegos from "./components/BibliotecaJuegos";
-import ListaResenas from "./components/ListaResenas";
-import EstadisticasPersonales from "./components/EstadisticasPersonales";
+import BibliotecaJuegos from "./pages/BibliotecaJuegos";
+import ListaResenas from "./pages/Resenas";
+import EstadisticasPersonales from "./pages/EstadisticasPersonales";
 import DynamicIslandHeader from "./components/DynamicIslandHeader";
 import "./App.css";
 
