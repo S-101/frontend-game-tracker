@@ -60,10 +60,10 @@ html, body {
 
 /* Grid */
 .resenas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 4rem;
+ display: grid;
+grid-template-columns: 1fr;
+gap: 1.5rem;
+margin-bottom: 4rem;
 }
 
 .resena-card {
@@ -79,7 +79,21 @@ html, body {
   background: rgba(255, 255, 255, 0.12);
   transform: translateY(-6px) scale(1.02);
 }
+/* Nuevo estilo para el título del juego */
+.resena-juego-titulo {
+    font-size: 2rem; /* O el tamaño que prefieras */
+    font-weight: bold;
+    color: var(--color-primario, #ffffffff); /* Usa tu color principal o uno que resalte */
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+/* Puedes ajustar el estilo del texto de la reseña para que el nombre de usuario resalte */
+.resena-texto strong {
+    color: var(--color-secundario, #ffc107); /* Color para el nombre de usuario */
+    margin-right: 0.25rem;
+}
 .resena-info {
   font-size: 1.5rem;
   color: #e5e7eb;
@@ -146,6 +160,7 @@ html, body {
 .form-group {
   margin-bottom: 1rem;
   text-align: left;
+  color: #d1d5db;
 }
 
 .form-group label {
@@ -162,7 +177,7 @@ html, body {
   border: none;
   border-radius: 10px;
   background: rgba(255,255,255,0.12);
-  color: white;
+  color:rgba(15, 0, 225, 1)b;
   outline: none;
 }
 
@@ -170,6 +185,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: start;
+  
+  
 }
 
 .checkbox label {
