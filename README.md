@@ -1,4 +1,5 @@
 IMPORTANTE --- instalar las dependencias!!.
+> TIP!!: al añadir una reseña. refresca la pagina para que el nombre del titulo cargue correctamente.
 
 Para iniciar: npm run dev 
 
